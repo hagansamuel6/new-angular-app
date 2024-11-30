@@ -1,26 +1,22 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { HousingLocationComponent } from '../housing-location/housing-location.component';
-import { Housinglocation } from '../housinglocation';
+import { HousingLocation } from '../housinglocation';
+import { HousingService } from '../housing.service';
 
 @Component({
   selector: 'app-home',
   standalone: true,
   imports: [HousingLocationComponent],
   templateUrl: './home.component.html',
-  styleUrl: './home.component.css'
+  styleUrl: './home.component.css',
 })
 export class HomeComponent {
-  readonly baseUrl = "https://angular.dev/assets/images/tutorials/common";
+  housingLocationList: HousingLocation[] = [];
+  housingLocationSingle: HousingLocation;
 
-  housingLocation: Housinglocation = {
-    id: 9999,
-    name: 'Test Home',
-    city: 'Test city',
-    state: 'ST',
-    photo: `${this.baseUrl}/example-house.jpg`,
-    availableUnits: 99,
-    wifi: true,
-    laundry: false,
-  };
- 
+  // housingService : HousingService = Inject(HousingService);
+  constructor(private housingService : HousingService){
+    this.housingLocationList = this.housingService.getAllHousingLocations();
+    this.housingLocationSingle = this.housingService.getHousingLocation();
+  }
 }

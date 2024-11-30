@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { Housinglocation } from '../housinglocation';
+import { CommonModule, NgForOf } from '@angular/common';
+import { HousingLocation } from '../housinglocation';
 
 
 @Component({
@@ -11,5 +11,5 @@ import { Housinglocation } from '../housinglocation';
   styleUrl: './housing-location.component.css'
 })
 export class HousingLocationComponent {
-  @Input() housingLocation!: Housinglocation;
+  @Input() housingLocation!: HousingLocation;
 }
