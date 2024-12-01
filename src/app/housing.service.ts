@@ -130,4 +130,8 @@ export class HousingService {
   getHousingLocation(): HousingLocation {
     return this.housingLocationSingle;
   }
+
+  submitApplication(firstName: string, lastName: string, email: string){
+    console.log(`home application received : firstname : ${firstName}, lastname : ${lastName}, email: ${email}`)
+  }
 }
